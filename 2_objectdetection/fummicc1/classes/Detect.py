@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch
 
 from classes.decode import decode
+from classes.nm_suppression import nm_suppression
 
 
 class Detect(Function):
