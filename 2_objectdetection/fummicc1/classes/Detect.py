@@ -8,12 +8,6 @@ from classes.nm_suppression import nm_suppression
 
 class Detect(Function):
 
-    def __init__(self, conf_thresh=0.01, top_k=200, nms_thresh=0.45):
-        self.softmax = nn.Softmax(dim=-1)
-        self.conf_thresh = conf_thresh
-        self.top_k = top_k
-        self.nms_thresh = nms_thresh
-
     def forward(self, loc_data, conf_data, dbox_list):
         """
         順伝搬の計算を実行する。
@@ -33,8 +27,11 @@ class Detect(Function):
             （batch_num、クラス、confのtop200、BBoxの情報）
         """
 
+        self.softmax = nn.Softmax(dim=-1)
+        self.conf_thresh = 0.01
+        self.top_k = 200
+        self.nms_thresh = 0.45
         num_batch = loc_data.size(0)
-        num_dbox = loc_data.size(1)
         num_classes = conf_data.size(2)
 
         conf_data = self.softmax(conf_data)

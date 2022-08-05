@@ -27,7 +27,7 @@ class SSD(nn.Module):
         self.dbox_list = dbox.make_dbox_list()
 
         if phase == 'inference':
-            self.detect = Detect()
+            self.detect = Detect.apply
 
     def forward(self, x):
         sources = list()  
