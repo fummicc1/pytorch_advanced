@@ -3,7 +3,6 @@ import sys
 sys.path.append("..")
 from utils.data_augumentation import Compose, Scale, RandomRotation, RandomMirror, Resize, Normalize_Tensor
 
-
 class DataTransform():
     """
     画像とアノテーションの前処理クラス。訓練時と検証時で異なる動作をする。
