@@ -1,6 +1,6 @@
 import torch
-import torch.nn as nn
 import time
+import pandas as pd
 
 # モデルを学習させる関数を作成
 
