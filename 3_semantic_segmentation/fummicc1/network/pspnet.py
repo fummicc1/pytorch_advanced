@@ -74,6 +74,9 @@ class PSPNet(nn.Module):
         x = self.feature_dilated_res_1(x)
         
         output_aux = self.aux(x)        
-        output = self.feature_dilated_res_2(x)
+        x = self.feature_dilated_res_2(x)
+        
+        x = self.pyramid_pooling(x)
+        output = self.decode_feature(x)
         
         return output, output_aux
