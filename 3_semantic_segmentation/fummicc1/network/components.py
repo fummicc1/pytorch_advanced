@@ -7,7 +7,7 @@ class conv2DBatchNormRelu(nn.Module):
                               kernel_size, stride, padding, dilation, bias=bias)
         self.batchnorm = nn.BatchNorm2d(out_channels)
         self.relu = nn.ReLU(inplace=True)
-        # inplase設定で入力を保存せずに出力を計算し、メモリ削減する
+        # inplace設定で入力を保存せずに出力を計算し、メモリ削減する
 
     def forward(self, x):
         x = self.conv(x)
